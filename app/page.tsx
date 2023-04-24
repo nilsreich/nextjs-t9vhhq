@@ -1,17 +1,16 @@
-import { createServerComponentSupabaseClient } from '@supabase/auth-helpers-nextjs';
-import { headers, cookies } from 'next/headers';
-import { RequestCookies } from 'next/dist/server/web/spec-extension/cookies';
-import { Login } from './Login';
+import { createServerComponentSupabaseClient } from "@supabase/auth-helpers-nextjs";
+import { headers, cookies } from "next/headers";
+import { Login } from "./Login";
 
 // do not cache this page
 export const revalidate = 0;
 
 export default async function Page() {
-  const supabase = await createServerComponentSupabaseClient({
+  const supabase = createServerComponentSupabaseClient({
     headers,
-    cookies: () => new RequestCookies(new Headers()),
+    cookies,
   });
-  const { data } = await supabase.from('posts').select('*');
+  const { data } = await supabase.from("posts").select("*");
 
   return (
     <div>
