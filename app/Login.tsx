@@ -1,21 +1,21 @@
-'use client';
+"use client";
 
-import { useSupabase } from './supabase-provider';
+import { useSupabase } from "./supabase-provider";
 
 export const Login = () => {
   const { supabase } = useSupabase();
 
   const handleSignUp = async () => {
     await supabase.auth.signUp({
-      email: 'jon@supabase.com',
-      password: 'sup3rs3cur3',
+      email: "jon@supabase.com",
+      password: "sup3rs3cur3",
     });
   };
 
   const handleLogin = async () => {
     await supabase.auth.signInWithPassword({
-      email: 'jon@supabase.com',
-      password: 'sup3rs3cur3',
+      email: "jon@supabase.com",
+      password: "sup3rs3cur3",
     });
   };
 
