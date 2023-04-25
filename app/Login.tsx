@@ -23,11 +23,13 @@ export const Login = () => {
     await supabase.auth.signOut();
   };
 
+  
+
   return (
-    <div>
-      <button onClick={handleSignUp}>Sign Up</button>
-      <button onClick={handleLogin}>Login</button>
-      <button onClick={handleLogout}>Logout</button>
+    <div className="flex gap-2">
+      <button className='border px-2' onClick={handleSignUp}>Sign Up</button>
+      <button className='border px-2' onClick={handleLogin}>Login</button>
+      <button className='border px-2' onClick={handleLogout}>Logout</button>
     </div>
   );
 };
